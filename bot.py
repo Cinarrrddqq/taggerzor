@@ -90,7 +90,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(-689435545, f"ℹ️ **Yeni Kullanıcı -** {ad}")
+     await client.send_message(-1001740742614, f"ℹ️ **Yeni Kullanıcı -** {ad}")
      return await event.reply(f"⚡️🖤 **Salam Mən Lord Tagger Bot** \n🏷 **Gruplarda Olan Userleri tağ eləmək üçün yaradıldım**. \n**Butonlara tıklayaraq kömək alabilərsən.**", buttons=(
                       [
                        Button.inline("📚 Commands", data="komutlar")
