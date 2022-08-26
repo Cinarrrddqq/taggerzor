@@ -136,8 +136,11 @@ async def handler(event):
                       Button.inline("📌 Label Commands", data="etiketkomutlar")
                       ],
                       [
-                      Button.inline("⛔️ Process Stop", data="islemidurdur"),
+                      Button.inline("⛔️ My Group", data="islemidurdur"),
                       Button.inline("✏️ Ping", data="pingpong")
+                      ],
+                      [
+                      Button.inline("sᴛᴏᴩ ᴄᴏʍʍᴀnds ⚠️", data="durdur")
                       ],
                       [
                       Button.inline("Owner Commands 📚", data="kullanici")
@@ -149,9 +152,9 @@ async def handler(event):
                     link_preview=False)
 
 
-@client.on(events.callbackquery.CallbackQuery(data="taggers"))
+@client.on(events.callbackquery.CallbackQuery(data="durdur"))
 async def handler(event):
-    await event.edit(f"**/atag** \n- Grupdaki yalnız adminləri tağ edər", buttons=(
+    await event.edit(f"**/durdur vəya /cancel** \n- Tag etmeni dayandırar", buttons=(
                       [
                       Button.inline("◀️ Arxaya", data="komutlar")
                       ],
@@ -171,7 +174,7 @@ async def handler(event):
                     
 @client.on(events.callbackquery.CallbackQuery(data="islemidurdur"))
 async def handler(event):
-    await event.edit(f"**/cancel vəya /durdur** \n- Tağ etməyi dayandırar", buttons=(
+    await event.edit(f"**go < @lordchatttt** \n- go < @lordchattt", buttons=(
                       [
                       Button.inline("◀️ Arxaya", data="komutlar")
                       ],
