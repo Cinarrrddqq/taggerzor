@@ -143,12 +143,25 @@ async def handler(event):
                       Button.inline("Owner Commands 📚", data="kullanici")
                       ],
                       [
+                      Button.inline("etag", data="etiketadı")
+                      ],
+                      [
                       Button.inline("◀️ Geri", data="start")
                       ],
                     ),
                     link_preview=False)
 
 
+@client.on(events.callbackquery.CallbackQuery(data="etiketadı"))
+async def handler(event):
+    await event.edit(f"**/etag** \n- Müxtəlif emojilərlə tağ edər", buttons=(
+                      [
+                      Button.inline("◀️ Arxaya", data="komutlar")
+                      ],
+                    ),
+                    link_preview=False)
+                    
+                    
 @client.on(events.callbackquery.CallbackQuery(data="islemidurdur"))
 async def handler(event):
     await event.edit(f"**/cancel vəya /durdur** \n- Tağ etməyi dayandırar", buttons=(
