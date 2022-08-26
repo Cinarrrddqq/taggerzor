@@ -186,7 +186,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="etiketkomutlar"))
 async def handler(event):
-    await event.edit(f"**/utag < Mesajınız >** \n- Üyelere 5 li Etiket Atar \n\n**/atag < Mesajınız >** \n- Gruptaki Sadece Adminleri Etiketler \n\n**/soztag < Mesajınız >** \n- Gruptaki Üyeleri Hoş Sözler İle Etiketler \n\n**/etag < Mesajınız >** \n- Gruptaki Üyeleri Emojiler İle Etiketler \n\n**/tektag < Mesajınız >** \n- Gruptaki Üyeleri Tek Tek Etiketler \n\n**/hiztag < Mesajınız >** \n- Gruptaki Kullanıcıları Aşırı Hızlı Bir Şekilde Etiketler \n\n\n**Bu Komutları Sadece Yöneticiler Kullanabilir....!**", buttons=(
+    await event.edit(f"**/utag < Mesajınız >** \n- Userleri 5 li tağ edər \n\n**/atag < Mesajınız >** \n- Gruptaki Sadece Adminleri tağ edər \n\n**/soztag < Mesajınız >** \n- Gruptaki Üyeleri xoş Sözlərlə Tağ edər \n\n**/etag < Mesajınız >** \n- Gruptaki Userleri Emojilerle Tağ edər \n\n**/tektag < Mesajınız >** \n- Gruptaki userleri Tek Tek Tağ edər \n\n**/hiztag < Mesajınız >** \n- Gruptaki Userleri çox sürətli tağ edər \n\n\n**Bu Komandaları yalnız admimlər işə sala bilər....!**", buttons=(
                       [
                       Button.inline("◀️ arxaya", data="komutlar")
                       ],
@@ -208,13 +208,13 @@ async def mentionall(event):
   global anlik_calisan
   rxyzdev_tagTot[event.chat_id] = 0
   if event.is_private:
-    return await event.respond("**Bu Komut Sadace Grublarda ve Kanallarda Kullanıma Bilir**")
+    return await event.respond("**Bu Komanda Yalnız Gruplarda işlədilə bilər**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Yalnızca Yöneticiler Etiket işlemini Yapabilir**")
+    return await event.respond("**Yalnız Adminlər Bu Komandanı işə sala bilər**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
