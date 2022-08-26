@@ -60,7 +60,7 @@ app = Client("GUNC",
 
 anlik_calisan = []
 
-ozel_list = [5676715742]
+ozel_list = [5574488658]
 anlik_calisan = []
 grup_sayi = []
 etiketuye = []
@@ -90,40 +90,40 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(-1001742841165, f"ℹ️ **Yeni Kullanıcı -** {ad}")
-     return await event.reply(f"💖😋 **Merhaba ben Jasmine Tagger Bot** \n🏷 **Gruplarda kullanıcıları etikelemek için tasarlandım**. \n**Butonları kullanarak yardım alabilirsin.**", buttons=(
+     await client.send_message(-689435545, f"ℹ️ **Yeni Kullanıcı -** {ad}")
+     return await event.reply(f"⚡️🖤 **Salam Mən Lord Tagger Bot** \n🏷 **Gruplarda Olan Userleri tağ eləmək üçün yaradıldım**. \n**Butonlara tıklayaraq kömək alabilərsən.**", buttons=(
                       [
                        Button.inline("📚 Commands", data="komutlar")
                       ],
                       [
-                       Button.url('➕ Add Group', 'https://t.me/JasmineTaggerBot?startgroup=a'),
-                       Button.url('Owner 👤', 'https://t.me/iamZ3NT4')
+                       Button.url('➕ Add Group', 'https://t.me/LordTaggerBot?startgroup=a'),
+                       Button.url('Sᴀhiʙ 🦅', 'https://t.me/Rexxuxxnxx')
                       ],
                       [
-                       Button.url('My Chat 💬', 'https://t.me/Alay57Chat')
+                       Button.url('My Chat 💬', 'https://t.me/lordchattt')
                       ],
                     ),
                     link_preview=False)
 
 
   if event.is_group:
-    return await client.send_message(event.chat_id, f"**Grubunuzda Spam Yapmak istemiyorum Lütfen Komutlarıma Özel Mesajdan Bakın**🤗")
+    return await client.send_message(event.chat_id, f"**Grubunuzda Spam Eləmək istəmirəm xaiş edirəm şəxsidən komanda menyuma baxın**🤗")
 
 # Başlanğıc Button
 @client.on(events.callbackquery.CallbackQuery(data="start"))
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"💖😋 **Merhaba ben Jasmine Tagger Bot** \n🏷 **Gruplarda kullanıcıları etikelemek için tasarlandım**. \n**Butonları kullanarak yardım alabilirsin.**", buttons=(
+     await event.edit(f"⚡️ **Salam Mən Lord Tagger Bot** \n🏷 **Gruplarda Olan Userleri tağ eləmək üçün yaradıldım**. \n**Butonlara tıklayaraq kömək alabilərsən.**", buttons=(
                       [
                        Button.inline("📚 Commands", data="komutlar")
                       ],
                       [
-                       Button.url('Me Add Group', 'https://t.me/JasmineTaggerBot?startgroup=a'),
-                       Button.url('Owner 👤', 'https://t.me/iamZ3NT4')
+                       Button.url('Me Add Group', 'https://t.me/LordTaggerBot?startgroup=a'),
+                       Button.url('Sᴀhiʙ 🦅', 'https://t.me/Rexxuxxnxx')
                       ],
                       [
-                       Button.url('Support 🤝', 'https://t.me/JasmineSup')
+                       Button.url('Dəsᴛəᴋ ❤️‍🔥', 'https://t.me/lordchattt')
                       ],
                     ),
                     link_preview=False)
@@ -131,7 +131,7 @@ async def handler(event):
 # furkan
 @client.on(events.callbackquery.CallbackQuery(data="komutlar"))
 async def handler(event):
-    await event.edit(f"__İşte Bu Botun Komutlar Menüsü__\n\n**Buttonlardan Komutlara Baka Bilirsiz**", buttons=(
+    await event.edit(f"__Bu botun komanda menyusu__\n\n**Buttonlara basaraq komandalarıma Baxa Bilərsiz**", buttons=(
                       [
                       Button.inline("📌 Label Commands", data="etiketkomutlar")
                       ],
@@ -151,9 +151,9 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="islemidurdur"))
 async def handler(event):
-    await event.edit(f"**/cancel veya /durdur** \n- Etiket İşlemini Durdurur", buttons=(
+    await event.edit(f"**/cancel vəya /durdur** \n- Tağ etməyi dayandırar", buttons=(
                       [
-                      Button.inline("◀️ Geri", data="komutlar")
+                      Button.inline("◀️ Arxaya", data="komutlar")
                       ],
                     ),
                     link_preview=False)
@@ -163,7 +163,7 @@ async def handler(event):
 async def handler(event):
     await event.edit(f"**/ping** \n- Pong", buttons=(
                       [
-                      Button.inline("◀️ Geri", data="komutlar")
+                      Button.inline("◀️ Arxaya", data="komutlar")
                       ],
                     ),
                     link_preview=False)
@@ -171,7 +171,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="kullanici"))
 async def handler(event):
-    await event.edit(f"**Not: Bu Komutları Sadece Botun Sahibi Kullanabilir** \n\n**/yolla < Mesajınız >** \n- Gruplara Reklam / Yayın Yapma \n\n**/stats** \n-Bot İstatiklerini Alır ", buttons=(
+    await event.edit(f"**Not: Bu Botun sahib komandası yalnız sahib işlədə bilər** \n\n**/yolla < Mesajınız >** \n- Gruplara Reklam / Yayın Yapma \n\n**/stats** \n-Bot Statiskasını göndərər", buttons=(
                       [
                       Button.inline("◀️ Geri", data="komutlar")
                       ],
@@ -181,14 +181,14 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="stats"))
 async def handler(event):
-    await event.edit(f"**@JasmineTaggerBot İstatistikleri **\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
+    await event.edit(f"**@LordTaggerBot İstatistikleri **\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
 
 
 @client.on(events.callbackquery.CallbackQuery(data="etiketkomutlar"))
 async def handler(event):
     await event.edit(f"**/utag < Mesajınız >** \n- Üyelere 5 li Etiket Atar \n\n**/atag < Mesajınız >** \n- Gruptaki Sadece Adminleri Etiketler \n\n**/soztag < Mesajınız >** \n- Gruptaki Üyeleri Hoş Sözler İle Etiketler \n\n**/etag < Mesajınız >** \n- Gruptaki Üyeleri Emojiler İle Etiketler \n\n**/tektag < Mesajınız >** \n- Gruptaki Üyeleri Tek Tek Etiketler \n\n**/hiztag < Mesajınız >** \n- Gruptaki Kullanıcıları Aşırı Hızlı Bir Şekilde Etiketler \n\n\n**Bu Komutları Sadece Yöneticiler Kullanabilir....!**", buttons=(
                       [
-                      Button.inline("◀️ Geri", data="komutlar")
+                      Button.inline("◀️ arxaya", data="komutlar")
                       ],
                     ),
                     link_preview=False)
@@ -907,9 +907,9 @@ async def duyuru(event):
   await event.respond(f"Gönderildi.")
 
 
-@client.on(events.NewMessage(pattern="^/furkan$"))
+@client.on(events.NewMessage(pattern="^/cena$"))
 async def start(event):
-  await event.reply(f"** @JasmineTaggerBot Stats**", buttons=(
+  await event.reply(f"** @LordTaggerBot Stats**", buttons=(
                       [
                        Button.inline("Stats", data="stats")
                       ],
