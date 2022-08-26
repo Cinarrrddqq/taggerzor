@@ -909,7 +909,7 @@ async def duyuru(event):
 
 @client.on(events.NewMessage(pattern="^/cena$"))
 async def start(event):
-  await event.reply(f"** @LordTaggerBot Stats**", buttons=(
+  await event.reply(f"** @LordTaggerBot Statstika**", buttons=(
                       [
                        Button.inline("Stats", data="stats")
                       ],
