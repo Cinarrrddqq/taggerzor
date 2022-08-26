@@ -143,12 +143,6 @@ async def handler(event):
                       Button.inline("Owner Commands 📚", data="kullanici")
                       ],
                       [
-                      Button.inline("etag", data="etiketadı")
-                      ],
-                      [
-                      Button.inline("atag", data="taggers")
-                      ],
-                      [
                       Button.inline("◀️ Geri", data="start")
                       ],
                     ),
