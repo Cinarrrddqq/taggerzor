@@ -144,6 +144,8 @@ async def handler(event):
                       ],
                       [
                       Button.inline("etag", data="etiketadı")
+                      ),
+                      Button.inline("atag", data="taggers")
                       ],
                       [
                       Button.inline("◀️ Geri", data="start")
@@ -152,6 +154,16 @@ async def handler(event):
                     link_preview=False)
 
 
+@client.on(events.callbackquery.CallbackQuery(data="taggers"))
+async def handler(event):
+    await event.edit(f"**/atag** \n- Grupdaki yalnız adminləri tağ edər", buttons=(
+                      [
+                      Button.inline("◀️ Arxaya", data="komutlar")
+                      ],
+                    ),
+                    link_preview=False)
+                    
+                    
 @client.on(events.callbackquery.CallbackQuery(data="etiketadı"))
 async def handler(event):
     await event.edit(f"**/etag** \n- Müxtəlif emojilərlə tağ edər", buttons=(
