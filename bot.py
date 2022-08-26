@@ -144,7 +144,8 @@ async def handler(event):
                       ],
                       [
                       Button.inline("etag", data="etiketadı")
-                      ),
+                      ],
+                      [
                       Button.inline("atag", data="taggers")
                       ],
                       [
