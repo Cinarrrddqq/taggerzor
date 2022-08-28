@@ -209,7 +209,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="etiketkomutlar"))
 async def handler(event):
-    await event.edit(f"**/utag < Mesajınız >** \n- Userleri 5 li tağ edər \n\n**/atag < Mesajınız >** \n- Gruptaki Sadece Adminleri tağ edər \n\n**/soztag < Mesajınız >** \n- Gruptaki Üyeleri xoş Sözlərlə Tağ edər \n\n**/etag < Mesajınız >** \n- Gruptaki Userleri Emojilerle Tağ edər \n\n**/tektag < Mesajınız >** \n- Gruptaki userleri Tek Tek Tağ edər \n\n**/hiztag < Mesajınız >** \n- Gruptaki Userleri çox sürətli tağ edər \n\n**/stag <Mesajınız> Şəhidlərimizin adları ilə tağ edər \n\n\n**Bu Komandaları yalnız admimlər işə sala bilər....!**", buttons=(
+    await event.edit(f"**/utag < Mesajınız >** \n- Userleri 5 li tağ edər \n\n**/atag < Mesajınız >** \n- Gruptaki Sadece Adminleri tağ edər \n\n**/soztag < Mesajınız >** \n- Gruptaki Üyeleri xoş Sözlərlə Tağ edər \n\n**/etag < Mesajınız >** \n- Gruptaki Userleri Emojilerle Tağ edər \n\n**/tektag < Mesajınız >** \n- Gruptaki userleri Tek Tek Tağ edər \n\n**/btag < Mesajınız> qrupdaki userleri müxtləif bayraqlarla tag edər \n\n**/hiztag < Mesajınız >** \n- Gruptaki Userleri çox sürətli tağ edər \n\n**/stag <Mesajınız> Şəhidlərimizin adları ilə tağ edər \n\n\n**Bu Komandaları yalnız admimlər işə sala bilər....!**", buttons=(
                       [
                       Button.inline("◀️ arxaya", data="komutlar")
                       ],
