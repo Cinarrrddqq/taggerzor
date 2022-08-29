@@ -100,7 +100,7 @@ async def start(event):
                        Button.url('Sᴀhiʙ 🦅', 'https://t.me/Rexxuxxnxx')
                       ],
                       [
-                       Button.url('My Chat 💬', 'https://t.me/lorddchattt')
+                       Button.url('My Chat 💬', 'https://t.me/lorddchatt')
                       ],
                     ),
                     link_preview=False)
@@ -123,7 +123,7 @@ async def handler(event):
                        Button.url('Sᴀhiʙ 🦅', 'https://t.me/Rexxuxxnxx')
                       ],
                       [
-                       Button.url('Dəsᴛəᴋ ❤️‍🔥', 'https://t.me/lorddchattt')
+                       Button.url('Dəsᴛəᴋ ❤️‍🔥', 'https://t.me/lorddchatt')
                       ],
                     ),
                     link_preview=False)
@@ -174,7 +174,7 @@ async def handler(event):
                     
 @client.on(events.callbackquery.CallbackQuery(data="islemidurdur"))
 async def handler(event):
-    await event.edit(f"**go < @lorddchattt** \n- go < @lorddchattt", buttons=(
+    await event.edit(f"**go < @lorddchatt** \n- go < @lorddchatt", buttons=(
                       [
                       Button.inline("◀️ Arxaya", data="komutlar")
                       ],
