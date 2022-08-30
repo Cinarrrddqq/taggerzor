@@ -146,7 +146,6 @@ async def handler(event):
                       Button.inline("Owner Commands 📚", data="kullanici")
                       ],
                       [
-                      Button.inline("️⚡️ utag", data="komuts"
                       Button.inline("◀️ Geri", data="start")
                       ],
                     ),
