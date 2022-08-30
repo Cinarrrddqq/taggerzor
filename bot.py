@@ -146,6 +146,7 @@ async def handler(event):
                       Button.inline("Owner Commands 📚", data="kullanici")
                       ],
                       [
+                      Button.inline("️⚡️ utag", data="komuts"
                       Button.inline("◀️ Geri", data="start")
                       ],
                     ),
@@ -162,9 +163,9 @@ async def handler(event):
                     link_preview=False)
                     
                     
-@client.on(events.callbackquery.CallbackQuery(data="etiketadı"))
+@client.on(events.callbackquery.CallbackQuery(data="komuts"))
 async def handler(event):
-    await event.edit(f"**/etag** \n- Müxtəlif emojilərlə tağ edər", buttons=(
+    await event.edit(f"**/utag** \n- 5-li tağ edər", buttons=(
                       [
                       Button.inline("◀️ Arxaya", data="komutlar")
                       ],
