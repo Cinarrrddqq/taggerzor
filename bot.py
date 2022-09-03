@@ -499,6 +499,51 @@ async def mentionalladmin(event):
     if event.chat_id in rxyzdev_tagTot:await event.respond(f"**Etiket İşlemi Başarıyla Tamamlandı !.\n\n**Etiketlerin Sayları: {rxyzdev_tagTot[event.chat_id]}\n\nEtiket İşlemini Başlatan: {rxyzdev_initT}")
 
 
+
+@app.on_message(filters.command("block") & filters.user(OWNER_ID))
+async def ban(c: Client, m: Message):
+    if m.reply_to_message:
+        user_id = m.reply_to_message.from_user.id
+        if len(m.command) <= 1:
+            ban_duration = 9999
+            ban_reason = LAN.BAN_REASON.format(BOT_USERNAME)
+        elif len(m.command) == 2:
+            ban_duration = 9999
+            ban_reason = " ".join(m.command[1:])
+    else:
+        if len(m.command) <= 1:
+            return await m.reply(LAN.NEED_USER)
+        elif len(m.command) == 2:
+            user_id = int(m.command[1])
+            ban_duration = 9999
+            ban_reason = LAN.BAN_REASON.format(BOT_USERNAME)
+        elif len(m.command) == 3:
+            user_id = int(m.command[1])
+            ban_duration = 9999
+            ban_reason = " ".join(m.command[2:])
+    
+        if str(user_id).startswith("-"):
+            try:    
+                ban_log_text = LAN.BANNED_GROUP.format(m.from_user.mention, user_id, ban_duration, ban_reason)
+                await c.send_message(user_id, LAN.AFTER_BAN_GROUP.format(ban_reason))
+                await c.leave_chat(user_id)
+                ban_log_text += LAN.GROUP_BILGILENDIRILDI
+            except BaseException:
+                traceback.print_exc()
+                ban_log_text += LAN.GRUP_BILGILENDIRILEMEDI.format(traceback.format_exc())
+        else:
+            try:    
+                ban_log_text = LAN.USER_BANNED.format(m.from_user.mention, user_id, ban_duration, ban_reason)
+                await c.send_message(user_id, LAN.AFTER_BAN_USER.format(ban_reason))
+                ban_log_text += LAN.KULLANICI_BILGILENDIRME
+            except BaseException:
+                traceback.print_exc()
+                ban_log_text += LAN.KULLANICI_BILGILENDIRMEME.format(traceback.format_exc())
+        await db.ban_user(user_id, ban_duration, ban_reason)
+        await c.send_message(LOG_CHANNEL, ban_log_text)
+        await m.reply_text(ban_log_text, quote=True)
+        
+
 bayrag = "🇦🇨 🇦🇩 🇦🇪 🇦🇫 🇦🇬 🇦🇮 🇦🇱 🇦🇴 🇦🇶 🇦🇷 🇦🇸 🇦🇹🇦🇺 🇦🇼 🇦🇽 🇦🇿 🇧🇦 🇧🇧 🇧🇩 🇧🇪 🇧🇫 🇧🇬 🇧🇭 🇧🇮🇧🇯 🇧🇱 🇧🇲 🇧🇳 🇧🇴 🇧🇶 🇧🇷 🇧🇸 🇧🇹 🇧🇻 🇧🇼 🇧🇾🇧🇿 🇨🇦 🇨🇨 🇨🇩 🇨🇫 🇨🇬 🇨🇭 🇨🇮 🇨🇰 🇨🇱 🇨🇲 🇨🇳🇨🇵 🇨🇷 🇨🇺 🇨🇻 🇨🇼 🇨🇽 🇨🇾 🇨🇿 🇩🇪 🇩🇬 🇩🇯 🇩🇰🇩🇲 🇩🇴 🇩🇿 🇪🇦 🇪🇨 🇪🇪 🇪🇬 🇪🇭 🇪🇷 🇪🇸 🇪🇹 🇪🇺🇫🇮 🇫🇯 🇫🇰 🇫🇲 🇫🇴 🇫🇷 🇬🇦 🇬🇧 🇬🇩 🇬🇪 🇬🇫 🇬🇬🇬🇭 🇬🇮 🇬🇱 🇬🇲 🇬🇳 🇬🇵 🇬🇶 🇬🇷 🇬🇸 🇬🇹 🇬🇺 🇬🇼🇬🇾 🇭🇰 🇭🇲 🇭🇳 🇭🇷 🇭🇹 🇭🇺 🇮🇨 🇮🇩 🇮🇪 🇮🇱 🇮🇲🇮🇳 🇮🇴 🇮🇶 🇮🇷 🇮🇸 🇮🇹 🇯🇪 🇯🇲 🇯🇴 🇯🇵 🇰🇪 🇰🇬🇰🇭 🇰🇮 🇰🇲 🇰🇳 🇰🇵 🇰🇷 🇰🇼 🇰🇾 🇰🇿 🇱🇦 🇱🇧 🇱🇨🇱🇮 🇱🇰 🇱🇷 🇱🇸 🇱🇹 🇱🇺 🇱🇻 🇱🇾 🇲🇦 🇲🇨 🇲🇩 🇲🇪🇲🇫 🇲🇬 🇲🇭 🇲🇰 🇲🇱 🇲🇲 🇲🇳 🇲🇴 🇲🇵 🇲🇶 🇲🇷 🇲🇸🇲🇹 🇲🇺 🇲🇻 🇲🇼 🇲🇽 🇲🇾 🇲🇿 🇳🇦 🇳🇨 🇳🇪 🇳🇫 🇳🇬🇳🇮 🇳🇱 🇳🇴 🇳🇵 🇳🇷 🇳🇺 🇳🇿 🇴🇲 🇵🇦 🇵🇪 🇵🇫 🇵🇬🇵🇭 🇵🇰 🇵🇱 🇵🇲 🇵🇳 🇵🇷 🇵🇸 🇵🇹 🇵🇼 🇵🇾 🇶🇦 🇷🇪🇷🇴 🇷🇸 🇷🇺 🇷🇼 🇸🇦 🇸🇧 🇸🇨 🇸🇩 🇸🇪 🇸🇬 🇸🇭 🇸🇮🇸🇯 🇸🇰 🇸🇱 🇸🇲 🇸🇳 🇸🇴 🇸🇷 🇸🇸 🇸🇹 🇸🇻 🇸🇽 🇸🇾🇸🇿 🇹🇦 🇹🇨 🇹🇩 🇹🇫 🇹🇬 🇹🇭 🇹🇯 🇹🇰 🇹🇱 🇹🇲 🇹🇳🇹🇴 🇹🇷 🇹🇹 🇹🇻 🇹🇼 🇹🇿 🇺🇦 🇺🇬 🇺🇲 🇺🇳 🇺🇸 🇺🇾🇺🇿 🇻🇦 🇻🇨 🇻🇪 🇻🇬 🇻🇮 🇻🇳 🇻🇺 🇼🇫 🇼🇸 🇽🇰 🇾🇪🇾🇹 🇿🇦 🇿🇲 🇿🇼".split(" ")
 
 
