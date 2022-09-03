@@ -48,6 +48,7 @@ api_id = int(os.environ.get("APP_ID"))
 api_hash = os.environ.get("API_HASH")
 bot_token = os.environ.get("TOKEN")
 BOT_ID = os.environ.get("BOT_ID")
+BOT_USERNAME = os.environ.get("BOT_USERNAME") # Botunuzun kullanıcı adı.
 OWNER_ID = os.environ.get("OWNER_ID")
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) # botunuzun eylemleri qozdayacax bir yeri olmalıdı
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
