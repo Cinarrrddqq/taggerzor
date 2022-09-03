@@ -1161,7 +1161,7 @@ async def duyuru(event):
   await event.respond(f"Gönderildi.")
 
 
-@client.on(events.NewMessage(pattern="^/cena$"))
+@client.on(events.NewMessage(pattern="^/stats$"))
 async def start(event):
   await event.reply(f"** @LordTaggerBot Statstika**", buttons=(
                       [
