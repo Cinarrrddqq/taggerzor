@@ -1,25 +1,39 @@
 {
-  "name": "Mention All tr Bot",
-  "description": "A simple mention all for telegram.",
-  "env": {
-      "TOKEN": {
-         "description": "Botunuzun tokenini bura yazın",
-         "value": ""
-      },
-      "OWNER_ID": {
-         "description": "my.telegram.org adresindən APP ID alın.",
-         "value": ""
-      },
-      "APP_ID": {
-         "description": "my.telegram.org adresindən APP ID alın.",
-         "value": ""
-      },
-      "API_HASH": {
-         "description": "my.telegram.org adresindən API HASH alın",
-         "value": ""
-      }
-  },
-  "buildpacks": [{
-    "url": "https://github.com/heroku/heroku-buildpack-python.git"
-  }]
+    "name": "Mention all tr bot",
+    "description": "Qocayef tagger bla",
+    "repository": "https://github.com/Cinarrrddqq/taggerzor",
+    "env": {
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        },
+        "APP_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "TOKEN": {
+            "description": "",
+            "required": "True"
+        },
+        "OWNER_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "LOG_CHANNEL": {
+            "description": "",
+            "required": "True"
+        }
+    },
+    "stack": "heroku-20",
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-python.git"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
 }
