@@ -70,6 +70,15 @@ rxyzdev_initT = {}
 
 
 
+@client.on(events.NewMessage(pattern='^/alive ?(.*)'))
+async def son_durum(event):
+    global anlik_calisan,grup_sayi,ozel_list
+    sender = await event.get_sender()
+    if sender.id not in ozel_list:
+      return
+    await event.respond(f"**Əziz Sahibim Bot işləkdir\nƏlavə məlumatlar üçün şəxsiyə yazın")
+
+
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
