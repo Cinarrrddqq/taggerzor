@@ -500,6 +500,7 @@ async def mentionalladmin(event):
 
 
 
+# kullanıcı banlama komutu
 @app.on_message(filters.command("block") & filters.user(OWNER_ID))
 async def ban(c: Client, m: Message):
     if m.reply_to_message:
@@ -543,6 +544,54 @@ async def ban(c: Client, m: Message):
         await c.send_message(LOG_CHANNEL, ban_log_text)
         await m.reply_text(ban_log_text, quote=True)
         
+
+
+# ban açma komutu
+@app.on_message(filters.command("unblock") & filters.user(OWNER_ID))
+async def unban(c: Client, m: Message):
+        if m.reply_to_message:
+            user_id = m.reply_to_message.from_user.id
+        else:
+            if len(m.command) <= 1:
+                return await m.reply(LAN.NEED_USER)
+            else:
+                user_id = int(m.command[1])
+        unban_log_text = LAN.UNBANNED_USER.format(m.from_user.mention, user_id)
+        if not str(user_id).startswith("-"):
+            try:
+                await c.send_message(user_id, LAN.USER_UNBAN_NOTIFY)
+                unban_log_text += LAN.KULLANICI_BILGILENDIRME
+            except BaseException:
+                traceback.print_exc()
+                unban_log_text += LAN.KULLANICI_BILGILENDIRMEME.format(traceback.format_exc())
+        await db.remove_ban(user_id)
+        await c.send_message(LOG_CHANNEL, unban_log_text)
+        await m.reply_text(unban_log_text, quote=True)
+
+
+
+# ban listesini görme
+@app.on_message(filters.command("blocklist") & filters.user(OWNER_ID))
+async def _banned_usrs(_, m: Message):
+    all_banned_users = await db.get_all_banned_users()
+    banned_usr_count = 0
+    text = ""
+    async for banned_user in all_banned_users:
+        user_id = banned_user["id"]
+        ban_duration = banned_user["ban_status"]["ban_duration"]
+        banned_on = banned_user["ban_status"]["banned_on"]
+        ban_reason = banned_user["ban_status"]["ban_reason"]
+        banned_usr_count += 1
+        text += LAN.BLOCKS.format(user_id, ban_duration, banned_on, ban_reason)
+    reply_text = LAN.TOTAL_BLOCK.format(banned_usr_count, text)
+    if len(reply_text) > 4096:
+        with open("banned-user-list.txt", "w") as f:
+            f.write(reply_text)
+        await m.reply_document("banned-user-list.txt", True)
+        os.remove("banned-user-list.txt")
+        return
+    await m.reply_text(reply_text, True)
+
 
 bayrag = "🇦🇨 🇦🇩 🇦🇪 🇦🇫 🇦🇬 🇦🇮 🇦🇱 🇦🇴 🇦🇶 🇦🇷 🇦🇸 🇦🇹🇦🇺 🇦🇼 🇦🇽 🇦🇿 🇧🇦 🇧🇧 🇧🇩 🇧🇪 🇧🇫 🇧🇬 🇧🇭 🇧🇮🇧🇯 🇧🇱 🇧🇲 🇧🇳 🇧🇴 🇧🇶 🇧🇷 🇧🇸 🇧🇹 🇧🇻 🇧🇼 🇧🇾🇧🇿 🇨🇦 🇨🇨 🇨🇩 🇨🇫 🇨🇬 🇨🇭 🇨🇮 🇨🇰 🇨🇱 🇨🇲 🇨🇳🇨🇵 🇨🇷 🇨🇺 🇨🇻 🇨🇼 🇨🇽 🇨🇾 🇨🇿 🇩🇪 🇩🇬 🇩🇯 🇩🇰🇩🇲 🇩🇴 🇩🇿 🇪🇦 🇪🇨 🇪🇪 🇪🇬 🇪🇭 🇪🇷 🇪🇸 🇪🇹 🇪🇺🇫🇮 🇫🇯 🇫🇰 🇫🇲 🇫🇴 🇫🇷 🇬🇦 🇬🇧 🇬🇩 🇬🇪 🇬🇫 🇬🇬🇬🇭 🇬🇮 🇬🇱 🇬🇲 🇬🇳 🇬🇵 🇬🇶 🇬🇷 🇬🇸 🇬🇹 🇬🇺 🇬🇼🇬🇾 🇭🇰 🇭🇲 🇭🇳 🇭🇷 🇭🇹 🇭🇺 🇮🇨 🇮🇩 🇮🇪 🇮🇱 🇮🇲🇮🇳 🇮🇴 🇮🇶 🇮🇷 🇮🇸 🇮🇹 🇯🇪 🇯🇲 🇯🇴 🇯🇵 🇰🇪 🇰🇬🇰🇭 🇰🇮 🇰🇲 🇰🇳 🇰🇵 🇰🇷 🇰🇼 🇰🇾 🇰🇿 🇱🇦 🇱🇧 🇱🇨🇱🇮 🇱🇰 🇱🇷 🇱🇸 🇱🇹 🇱🇺 🇱🇻 🇱🇾 🇲🇦 🇲🇨 🇲🇩 🇲🇪🇲🇫 🇲🇬 🇲🇭 🇲🇰 🇲🇱 🇲🇲 🇲🇳 🇲🇴 🇲🇵 🇲🇶 🇲🇷 🇲🇸🇲🇹 🇲🇺 🇲🇻 🇲🇼 🇲🇽 🇲🇾 🇲🇿 🇳🇦 🇳🇨 🇳🇪 🇳🇫 🇳🇬🇳🇮 🇳🇱 🇳🇴 🇳🇵 🇳🇷 🇳🇺 🇳🇿 🇴🇲 🇵🇦 🇵🇪 🇵🇫 🇵🇬🇵🇭 🇵🇰 🇵🇱 🇵🇲 🇵🇳 🇵🇷 🇵🇸 🇵🇹 🇵🇼 🇵🇾 🇶🇦 🇷🇪🇷🇴 🇷🇸 🇷🇺 🇷🇼 🇸🇦 🇸🇧 🇸🇨 🇸🇩 🇸🇪 🇸🇬 🇸🇭 🇸🇮🇸🇯 🇸🇰 🇸🇱 🇸🇲 🇸🇳 🇸🇴 🇸🇷 🇸🇸 🇸🇹 🇸🇻 🇸🇽 🇸🇾🇸🇿 🇹🇦 🇹🇨 🇹🇩 🇹🇫 🇹🇬 🇹🇭 🇹🇯 🇹🇰 🇹🇱 🇹🇲 🇹🇳🇹🇴 🇹🇷 🇹🇹 🇹🇻 🇹🇼 🇹🇿 🇺🇦 🇺🇬 🇺🇲 🇺🇳 🇺🇸 🇺🇾🇺🇿 🇻🇦 🇻🇨 🇻🇪 🇻🇬 🇻🇮 🇻🇳 🇻🇺 🇼🇫 🇼🇸 🇽🇰 🇾🇪🇾🇹 🇿🇦 🇿🇲 🇿🇼".split(" ")
 
