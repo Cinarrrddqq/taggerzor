@@ -72,7 +72,7 @@ rxyzdev_initT = {}
 
 @client.on(events.NewMessage(pattern='^/alive ?(.*)'))
 async def son_durum(event):
-    global anlik_calisan,grup_sayi,ozel_list
+    global ozel_list
     sender = await event.get_sender()
     if sender.id not in ozel_list:
       return
