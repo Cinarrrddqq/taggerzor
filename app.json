@@ -4,23 +4,23 @@
     "repository": "https://github.com/Cinarrrddqq/taggerzor",
     "env": {
         "API_HASH": {
-            "description": "",
+            "description": "zorunlu",
             "required": "True"
         },
         "APP_ID": {
-            "description": "",
+            "description": "zorunlu al",
             "required": "True"
         },
         "TOKEN": {
-            "description": "",
+            "description": "botunun tokeni",
             "required": "True"
         },
         "OWNER_ID": {
-            "description": "",
+            "description": "kendi id",
             "required": "True"
         },
         "LOG_CHANNEL": {
-            "description": "",
+            "description": "log grupu",
             "required": "True"
         }
     },
