@@ -13,7 +13,7 @@
       "LOG_CHANNEL": {
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
-      }
+      },
       "APP_ID": {
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
