@@ -7,11 +7,11 @@
          "value": ""
       },
       "OWNER_ID": {
-         "description": "my.telegram.org adresindən APP ID alın.",
+         "description": "Bot Sahibin id.",
          "value": ""
       },
       "LOG_CHANNEL": {
-         "description": "my.telegram.org adresindən ID alın.",
+         "description": "Log kanalı id",
          "value": ""
       },
       "APP_ID": {
