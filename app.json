@@ -10,14 +10,6 @@
          "description": "Bot Sahibin id.",
          "value": ""
       },
-      "LOG_CHANNEL": {
-         "description": "Log kanalı id",
-         "value": ""
-      },
-      "BOT_USERNAME": {
-         "description": "Botun tağ adnı yaz",
-         "value": ""
-      },
       "APP_ID": {
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
