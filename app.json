@@ -10,6 +10,18 @@
          "description": "Bot Sahibin id.",
          "value": ""
       },
+      "DATABASE_URL": {
+         "description": "Mongodb yaz",
+         "value": ""
+      },
+      "LOG_CHANNEL": {
+         "description": "Log grupunun idsini yaz",
+         "value": ""
+      },
+      "BOT_USERNAME": {
+         "description": "Botun kullanıcı adı",
+         "value": ""
+      },
       "APP_ID": {
          "description": "my.telegram.org adresindən APP ID alın.",
          "value": ""
