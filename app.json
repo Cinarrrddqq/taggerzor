@@ -14,6 +14,10 @@
          "description": "Mongodb yaz",
          "value": ""
       },
+      "GROUP_SUPPORT": {
+         "description": "Support kanalı",
+         "value": ""
+      },
       "LOG_CHANNEL": {
          "description": "Log grupunun idsini yaz",
          "value": ""
