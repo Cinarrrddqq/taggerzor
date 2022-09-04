@@ -1300,7 +1300,7 @@ async def delcmd_is_on(chat_id: int) -> bool: # Grup için mesaj silme özeliği
     return not chat
     
     
-    async def delcmd_on(chat_id: int): # Grup için mesaj silme özeliğini açar.
+async def delcmd_on(chat_id: int): # Grup için mesaj silme özeliğini açar.
     already_del = await delcmd_is_on(chat_id)
     if already_del:
         return
